@@ -1,3 +1,9 @@
+  Globals
+  {
+  int blue,green,red;
+int j,i;
+}
+  void loop {
   i=knob.read();
             if ( i >= 67   ) {
               i=i-67;
@@ -32,3 +38,4 @@
             }
             else 
             led1.off(); //off//put your main code here
+            }
