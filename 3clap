@@ -1,0 +1,48 @@
+int clapC=0;
+int i=0,j=0;
+
+void off()
+{
+    delay(1000);
+led1.off();
+led2.off();
+led3.off();
+}
+
+void loop()
+{
+//put your main code here
+if ( mic.read() >= 90 ) 
+{
+    //clapC++;
+   
+    led1.setRGB(100,0,0);   //first clap
+    delay(50);
+    for(i=0;i<20;i++)           //mic.read() runs for 50 seconds
+    {                               //20*50 ms
+        
+        if(mic.read() >=90)
+        {
+            led2.setRGB(0,100,0);
+            delay(50);        
+             for(j=0;j<20;j++)           
+            {
+                 if(mic.read() >=90)
+                {
+                    led3.setRGB(0,0,100);
+                    delay(1000);
+                    off();
+                    break;
+                }
+            }
+            off();
+        
+            
+        }
+        
+    }   
+    off();
+    
+}
+
+}
