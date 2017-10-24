@@ -1,0 +1,34 @@
+  i=knob.read();
+            if ( i >= 67   ) {
+              i=i-67;
+             blue=255-i*255/33;
+             green=255-i*255/33;
+             red=i*255/33;
+             led1.setRGB(red,green,blue); //red
+            }
+            else if ( i >=34 && i<=67 ) {
+              j=i-34;
+              if (j<17){
+              green=j*255/16;
+               blue=255-j*255/16;
+                red=255-j*255/16;
+              }
+              else {
+                  j=j-16;
+                  green=255-j*255/16;
+                   blue=j*255/16;
+                red=j*255/16;
+              }
+            
+            
+             led1.setRGB(red,green,blue);// green
+            }
+            else if ( i > 1 && i<=34 ) {
+              i=i-1;
+             blue=255-i*255/33;
+             green=i*255/33;
+             red=i*255/33;
+             led1.setRGB(red,green,blue);// blue
+            }
+            else 
+            led1.off(); //off//put your main code here
