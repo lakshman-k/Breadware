@@ -1,0 +1,230 @@
+global
+{
+//put your global code here
+int counter=0;
+int x=255;
+int k1=0;
+int k2=0;
+int k3=0;
+
+int clapC=0;
+int i=0,j=0;
+int d=0;
+
+void off()
+{
+    delay(1000);
+led1.off();
+led2.off();
+led3.off();
+}
+
+void magic()
+{
+    while(d==0)
+    {
+         if ( mic.read() >= 90 ) 
+{
+    //clapC++;
+    counter=1;
+    led1.setRGB(100,0,0);   //first clap
+    delay(50);
+    for(i=0;i<20;i++)           //mic.read() runs for 50 seconds
+    {                               //20*50 ms
+        
+        if(mic.read() >=90)
+        {
+            counter=2;
+            led2.setRGB(0,100,0);
+            delay(50);        
+             for(j=0;j<20;j++)           
+            {
+                 if(mic.read() >=90)
+                {
+                    counter=3;
+                    led3.setRGB(0,0,100);
+                    delay(1000);
+                    off();
+                    break;
+                }
+            }
+            off();
+        
+            
+        }
+        
+    }   
+    off();
+    
+}
+        
+   return; }
+   
+
+}
+}
+
+
+
+
+
+void loop()
+{
+//put your main code here
+//put your main code here
+magic();
+
+switch(counter)
+{
+ case 1:  
+ while(k1<3)
+     {
+    delay(500);
+
+led1.setRGB(255,0,0);
+led2.setRGB(0,255,0);
+led3.setRGB(180,50,110);
+
+delay(500);
+
+    led1.setRGB(10,90,140);
+led2.setRGB(255,0,0);
+led3.setRGB(0,255,0);
+
+  delay(500);
+ 
+     led1.setRGB(180,50,110);
+led2.setRGB(10,90,140);
+led3.setRGB(255,0,0);
+
+ delay(500);
+
+    led1.setRGB(0,255,0);
+led2.setRGB(180,50,110);
+led3.setRGB(10,90,140);
+
+k1++;
+}
+ k1=0;
+ break;
+ 
+case 2:
+        led1.off();
+        led2.off();
+        led3.off();
+        while(k2<3)
+        {
+   
+            led1.setRGB(255,0,0);
+            delay(500);
+           
+             led1.off();
+   
+ delay(500);
+ 
+   led2.setRGB(0,255,0);
+  
+  delay(500);
+   
+   led2.off();
+   
+  delay(500);
+  
+   led3.setRGB(0,0,255);
+  
+  delay(500);
+    
+   led3.off(); 
+   
+  delay(500); 
+   
+   k2++;
+
+}
+k2=0;
+led1.off();
+led2.off();
+led3.off();
+break;
+case 3:
+while(k3<3)
+{
+   
+            while(x>0)
+            {
+                led1.setRGB(x,0,0);
+    led2.setRGB(x,0,0);
+    led3.setRGB(x,0,0);
+    x=x-5;
+
+ delay(50);
+ 
+            }
+           
+           x=x+5;
+            while(x<=255)
+            {
+                led1.setRGB(0,x,0);
+    led2.setRGB(0,x,0);
+    led3.setRGB(0,x,0);
+    x=x+5;
+
+ delay(50);
+ 
+            }
+            x=x-5;
+             while(x>0)
+            {
+                led1.setRGB(0,x,0);
+    led2.setRGB(0,x,0);
+    led3.setRGB(0,x,0);
+    x=x-5;
+
+ delay(50);
+ 
+            }
+           
+           x=x+5;
+            while(x<=255)
+            {
+                led1.setRGB(0,0,x);
+    led2.setRGB(0,0,x);
+    led3.setRGB(0,0,x);
+    x=x+5;
+
+ delay(50);
+ 
+            }
+           x=x-5;
+            
+             while(x>0)
+            {
+               led1.setRGB(0,0,x);
+    led2.setRGB(0,0,x);
+    led3.setRGB(0,0,x);
+    x=x-5;
+
+ delay(50);
+  
+
+            }
+             while(x<=255)
+            {
+                led1.setRGB(x,0,0);
+    led2.setRGB(x,0,0);
+    led3.setRGB(x,0,0);
+    x=x+5;
+
+ delay(50);
+ 
+
+            }
+            x=x-5;
+k3++;
+
+}
+k3=0;
+
+break;
+}
+}
