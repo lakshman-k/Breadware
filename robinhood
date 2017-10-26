@@ -1,0 +1,26 @@
+int k=0;
+
+void loop()
+{//put your main code here
+if ( bri.read() < 20 ) 
+{
+    if ( gyro.read_y() >= 40 ) 
+    {
+       
+       
+        while(k==0)
+        {
+            speak.write(1000);
+            if ( button.is_pressed() )
+            {
+             
+              speak.write(0);
+                break;
+            }
+        }
+       
+
+}
+
+}
+}
