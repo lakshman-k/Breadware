@@ -1,0 +1,46 @@
+int i;
+boolean flag=false;
+
+int alarm(){
+    while (1){
+     speaker.write(500);
+      speaker.write(1500);
+      if ( button.is_pressed() ) {
+          speaker.write(0);
+            return 0;
+        }
+    }
+      
+}
+
+//put your main code here
+//i=microphone.read();
+//vibration.write(String(i));
+//if (i>80){
+//    flag= true;
+//}
+
+
+
+
+//yy=acc.read_y();
+//zz=acc.read_z();
+  //i=accelerometer.read_x();
+  //if (i>1){
+    //alarm();
+   //   led1.setRGB(200,0,0);
+    //  value.write(String(i));
+      // y.write(String(yy));
+      //z.write(String(zz));
+    //  led1.off();
+  //}
+//Serial.print(step);
+ // step_.write(String(step));
+
+
+
+if ( gyroscope.read_x() >= 20 || gyroscope.read_y()>=20 ||gyroscope.read_z()>=20 ) {
+    alarm();
+
+}
+
